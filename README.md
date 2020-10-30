@@ -1,7 +1,7 @@
 <p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg" width="470"></a></p>
 
 <p align="center">
-<a href="https://packagist.org/packages/Pharaonic/laravel-short-url"><img src="https://poser.pugx.org/pharaonic/laravel-short-url/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-short-url"><img src="https://img.shields.io/packagist/dt/Pharaonic/laravel-short-url" alt="Total Downloads"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-short-url"><img src="https://img.shields.io/packagist/l/Pharaonic/laravel-short-url" alt="License"></a>
+<a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://poser.pugx.org/pharaonic/laravel-readable/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://img.shields.io/packagist/dt/Pharaonic/laravel-readable" alt="Total Downloads"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://img.shields.io/packagist/l/Pharaonic/laravel-readable" alt="License"></a>
 </p>
 
 
