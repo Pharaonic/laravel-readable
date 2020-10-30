@@ -1,0 +1,43 @@
+{
+    "name": "pharaonic/laravel-readable",
+    "description": "Laravel - Readable Number (Integer|decimal) & DateTime & Time Length & File Size.",
+    "keywords": [
+        "php",
+        "laravel",
+        "human readable",
+        "readable",
+        "pharaonic"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Raggi",
+            "email": "support@pharaonic.io",
+            "homepage": "https://pharaonic.io"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "laravel/framework": ">=6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Pharaonic\\Laravel\\Readable\\": "src"
+        },
+        "files": [
+            "src/Helpers.php"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Pharaonic\\Laravel\\Readable\\ReadableServiceProvider"
+            ],
+            "aliases": {
+                "Readable": "Pharaonic\\Laravel\\Readable\\Readable"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
