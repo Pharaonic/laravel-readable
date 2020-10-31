@@ -8,7 +8,6 @@
 
 
 
-###### Laravel >= 6
 #### Laravel Readable provides a quick and easy functions & blade directives.
 
 - ###### Number. 				   		(1,020,304,050,607,080)
