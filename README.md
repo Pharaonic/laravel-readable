@@ -1,7 +1,8 @@
 <p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg" width="470"></a></p>
 
 <p align="center">
-<a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://poser.pugx.org/pharaonic/laravel-readable/v/stable" alt="Latest Stable Version"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://img.shields.io/packagist/dt/Pharaonic/laravel-readable" alt="Total Downloads"></a> <a href="https://packagist.org/packages/Pharaonic/laravel-readable"><img src="https://img.shields.io/packagist/l/Pharaonic/laravel-readable" alt="License"></a>
+<a href="https://github.com/Pharaonic/laravel-readable" target="_blank"><img src="http://img.shields.io/badge/source-pharaonic/laravel--readable-blue.svg?style=flat-square" alt="Source"></a> <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://img.shields.io/packagist/v/pharaonic/laravel-readable?style=flat-square" alt="Packagist Version"></a><br>
+<a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/badge/Laravel->=6.0-red.svg?style=flat-square" alt="Laravel"></a> <img src="https://img.shields.io/packagist/dt/pharaonic/laravel-readable?style=flat-square" alt="Packagist Downloads"> <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Source">
 </p>
 
 
