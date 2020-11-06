@@ -12,7 +12,7 @@
 
 - ###### Number. 				   		(1,020,304,050,607,080)
 
-- ###### NumberToString. 	       ( seven thousand seven hundred twenty-one )
+- ###### NumberToString. 	       ( seven thousand seven hundred twenty-one )  {PHP Extension intl}
 
 - ###### HumanNumber.  	    	( 77K  ||  77.4K  ||  77.37K )
 

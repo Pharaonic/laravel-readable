@@ -86,7 +86,8 @@ class Readable
         if (!in_array(gettype($input), ['integer', 'double', 'float'])) throw new TypeError("Wrong Input Type.");
 
         $digit = new \NumberFormatter($lang, \NumberFormatter::SPELLOUT);
-        return $digit->format($input);
+        $input = $digit->format($input);
+        return $lang == 'ar' ? str_replace('و ', 'و', $input) : $input;
     }
 
     /**
