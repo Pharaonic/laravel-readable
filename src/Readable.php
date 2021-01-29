@@ -95,13 +95,41 @@ class Readable
      *
      * @param int $input
      * @param int $decimals
+     * @param string $point
+     * @param string $delimiter
      * @return string
      **/
     public static function getDecimal($input, int $decimals = 2, string $point = '.', string $delimiter = ','): ?string
     {
-        if (!in_array(gettype($input), ['integer', 'double', 'float', 'string'])) throw new TypeError("Wrong Input Type.");
+        if (!in_array(gettype($input), ['integer', 'double', 'float'])) throw new TypeError("Wrong Input Type.");
 
         return number_format($input, $decimals, $point, $delimiter);
+    }
+
+    /**
+     * Get Readable ( Decimal Number => Decimal || Integer )
+     *
+     * @param int $input
+     * @param int $decimals_length
+     * @param string $point
+     * @param string $delimiter
+     * @return string
+     **/
+    public static function getDecInt($input, int $decimals_length = 2, string $point = '.', string $delimiter = ','): ?string
+    {
+        if (!in_array(gettype($input), ['integer', 'double', 'float'])) throw new TypeError("Wrong Input Type.");
+
+        // Convert Decimal to Integer if $decimals_length == 0 || use the limiter
+        if (is_float($input)) {
+            $decInt = $input - (int) $input;
+
+            if ($decInt == 0) {
+                $input = (int) $input;
+                $decimals_length = 0;
+            } 
+        }
+
+        return number_format($input, $decimals_length, $point, $delimiter);
     }
 
     // DATE & TIME
