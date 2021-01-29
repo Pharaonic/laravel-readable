@@ -18,6 +18,8 @@
 
 - ###### Decimal. 					  	 ( 60,708.547 )
 
+- ###### DecInt. 					  	 ( 70.00 => 70 || 70.07 )
+
 - ###### Date. 					  	   	( 24 April 2020 )
 
 - ###### Time. 					  	   	( 15:20   ||   15:20:22   ||   03:20 PM   ||   03:20:22 PM )
@@ -53,6 +55,7 @@ $ composer require pharaonic/laravel-readable
 - [ReadableNumberToString()](#ReadableNumberToString)
 - [ReadableHumanNumber()](#ReadableHumanNumber)
 - [ReadableDecimal()](#ReadableDecimal)
+- [ReadableDecInt()](#ReadableDecInt)
 - [ReadableDate()](#ReadableDate)
 - [ReadableTime()](#ReadableTime)
 - [ReadableDateTime()](#ReadableDateTime)
@@ -87,6 +90,12 @@ $ composer require pharaonic/laravel-readable
 <a name="ReadableDecimal"></a>
 ##### ReadableDecimal ($number, int $decimals = 2, , string $point = '.', string $delimiter = ',')
 ###### 60,708.54
+
+
+
+<a name="ReadableDecInt"></a>
+##### ReadableDecInt ($number, int $decimals = 2, , string $point = '.', string $delimiter = ',')
+###### 70 || 70.7
 
 
 
