@@ -46,6 +46,10 @@ class ReadableServiceProvider extends ServiceProvider
             return "<?php echo Pharaonic\Laravel\Readable\Readable::getDecimal($data); ?>";
         });
 
+        Blade::directive($n . 'DecInt', function ($data) {
+            return "<?php echo Pharaonic\Laravel\Readable\Readable::getDecInt($data); ?>";
+        });
+
         // DATE & TIME
 
         Blade::directive($n . 'Date', function ($data) {
