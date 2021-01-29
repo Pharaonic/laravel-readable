@@ -43,11 +43,27 @@ function ReadableHumanNumber(int $input, bool $showDecimal = false, int $decimal
  *
  * @param int $input
  * @param int $decimals
+ * @param string $point
+ * @param string $delimiter
  * @return string
  **/
 function ReadableDecimal($input, int $decimals = 2, string $point = '.', string $delimiter = ','): ?string
 {
     return Readable::getDecimal($input, $decimals, $point, $delimiter);
+}
+
+/**
+ * Get Readable ( Decimal Number => Decimal || Integer )
+ *
+ * @param int $input
+ * @param int $decimals_length
+ * @param string $point
+ * @param string $delimiter
+ * @return string
+ **/
+function ReadableDecInt($input, int $decimals_length = 2, string $point = '.', string $delimiter = ','): ?string
+{
+    return Readable::getDecInt($input, $decimals_length, $point, $delimiter);
 }
 
 // DATE & TIME
@@ -87,7 +103,6 @@ function ReadableTime($input, $is12 = false, bool $hasSeconds = false, string $t
 function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false,  string $timezone = null): ?string
 {
     return Readable::getDateTime($input, $is12, $hasSeconds, $timezone);
-
 }
 
 /**
@@ -101,7 +116,6 @@ function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false,  stri
 function ReadableDiffDateTime($old, $new = null, string $timezone = null): ?string
 {
     return Readable::getDiffDateTime($old, $new, $timezone);
-
 }
 
 /**
