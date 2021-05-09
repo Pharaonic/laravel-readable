@@ -123,11 +123,12 @@ function ReadableDiffDateTime($old, $new = null, string $timezone = null): ?stri
  *
  * @param int $input
  * @param string $comma
+ * @param boolean $short
  * @return string
  **/
-function ReadableTimeLength(int $input, string $comma = ' '): ?string
+function ReadableTimeLength(int $input, string $comma = ' ', bool $short = false): ?string
 {
-    return Readable::getTimeLength($input, $comma);
+    return Readable::getTimeLength($input, $comma, $short);
 }
 
 /**
