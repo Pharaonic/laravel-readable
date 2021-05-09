@@ -215,9 +215,10 @@ class Readable
      *
      * @param int $input
      * @param string $comma
+     * @param boolean $short
      * @return string
      **/
-    public static function getTimeLength(int $input, string $comma = ' '): ?string
+    public static function getTimeLength(int $input, string $comma = ' ', bool $short = false): ?string
     {
         //years
         $years = floor($input / 31104000);
@@ -243,7 +244,7 @@ class Readable
         $seconds = $input % 60;
 
         $obj = new CarbonInterval($years, $months, null, $days, $hours, $minutes, $seconds);
-        return $obj->forHumans(['join' => $comma]);
+        return $obj->forHumans(['join' => $comma, 'short' => $short]);
     }
 
     /**

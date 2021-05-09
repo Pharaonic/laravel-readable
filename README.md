@@ -134,9 +134,10 @@ $ composer require pharaonic/laravel-readable
 
 
 <a name="ReadableTimeLength"></a>
-##### ReadableTimeLength (int $seconds, string $comma = ' ')
+##### ReadableTimeLength (int $seconds, string $comma = ' ', bool $short = false)
 ###### 4 years 7 months 1 week 3 days 9 hours 50 minutes 10 seconds
 ###### Comma => 4 years - 7 months - 1 week - 3 days - 9 hours - 50 minutes - 10 seconds
+###### Short => 4y 7m 1w 3d 9h 50m 10s
 
 
 
