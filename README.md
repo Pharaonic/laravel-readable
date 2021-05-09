@@ -30,6 +30,8 @@
 
 - ###### Time Length.    	   	     ( 4 years 7 months 1 week 3 days 9 hours 50 minutes 10 seconds )
 
+- ###### Short Time Length.    	   	     ( 4y 7m 1w 3d 9h 50m 10s )
+
 - ###### DateTime Length.    	   ( 27 years - 1 week - 7 minutes - 7 seconds before )
 
 - ###### File Size.    	 	 	 	 	 ( 70 GB )
