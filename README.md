@@ -1,4 +1,4 @@
-<p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg" width="470"></a></p>
+<p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg"></a></p>
 
 <p align="center">
 <a href="https://github.com/Pharaonic/laravel-readable" target="_blank"><img src="http://img.shields.io/badge/source-pharaonic/laravel--readable-blue.svg?style=flat-square" alt="Source"></a> <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://img.shields.io/packagist/v/pharaonic/laravel-readable?style=flat-square" alt="Packagist Version"></a><br>
