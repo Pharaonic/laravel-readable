@@ -1,14 +1,18 @@
 <p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg"></a></p>
 
 <p align="center">
-<a href="https://github.com/Pharaonic/laravel-readable" target="_blank"><img src="http://img.shields.io/badge/source-pharaonic/laravel--readable-blue.svg?style=flat-square" alt="Source"></a> <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://img.shields.io/packagist/v/pharaonic/laravel-readable?style=flat-square" alt="Packagist Version"></a><br>
-<a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/badge/Laravel->=6.0-red.svg?style=flat-square" alt="Laravel"></a> <img src="https://img.shields.io/packagist/dt/pharaonic/laravel-readable?style=flat-square" alt="Packagist Downloads"> <img src="http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square" alt="Source">
+  <a href="https://php.net" target="_blank"><img src="https://img.shields.io/static/v1?label=PHP&message=%3E=7.2&color=blue&style=flat-square" alt="PHP Version : >= 7.2"></a>
+  <a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/static/v1?label=Laravel&message=%3E=6.0&color=F05340&style=flat-square" alt="Laravel Version : >= 6.0"></a>
+  <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=brightgreen&style=flat-square" alt="License">
+  <a href="https://liberapay.com/Pharaonic" target="_blank"><img src="https://img.shields.io/liberapay/receives/Pharaonic?color=gold&label=Support&style=flat-square" alt="Support"></a>
+  <br>
+  <a href="https://packagist.org/packages/Pharaonic/laravel-readable" target="_blank"><img src="https://img.shields.io/static/v1?label=Packagist&message=pharaonic/laravel-readable&color=blue&logo=packagist&logoColor=white" alt="Source"></a>
+  <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-readable/v" alt="Packagist Version"></a>
+  <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-readable/downloads" alt="Packagist Downloads"></a>
 </p>
 
-
-
-
-#### Laravel Readable provides a quick and easy functions & blade directives.
+<h3 align="center">Readable provides a quick and easy functions & blade directives.</h3>
+<br>
 
 - ###### Number. 				   		(1,020,304,050,607,080)
 
@@ -35,130 +39,21 @@
 - ###### DateTime Length.    	   ( 27 years - 1 week - 7 minutes - 7 seconds before )
 
 - ###### File Size.    	 	 	 	 	 ( 70 GB )
+<br>
 
 
+## Documentation
 
-## Install
+You can find the detailed documentation here in [Laravel Readable Documentation](https://pharaonic.io/package/2-laravel/14-readable).
 
-Install the latest version using [Composer](https://getcomposer.org/):
+## Contributing
 
-```bash
-$ composer require pharaonic/laravel-readable
-```
+Thank you for considering contributing to this package! Be one of Pharaonic team.
 
+## Pharaonic Sponsors
 
-
-
-
-## Usage
-
-**Readable has the following methods & directives:**
-- [ReadableNumber()](#ReadableNumber)
-- [ReadableNumberToString()](#ReadableNumberToString)
-- [ReadableHumanNumber()](#ReadableHumanNumber)
-- [ReadableDecimal()](#ReadableDecimal)
-- [ReadableDecInt()](#ReadableDecInt)
-- [ReadableDate()](#ReadableDate)
-- [ReadableTime()](#ReadableTime)
-- [ReadableDateTime()](#ReadableDateTime)
-- [ReadableDiffDateTime()](#ReadableDiffDateTime)
-- [ReadableTimeLength()](#ReadableTimeLength)
-- [ReadableDateTimeLength()](#ReadableDateTimeLength)
-- [ReadableSize()](#ReadableSize)
-
-
-<a name="ReadableNumber"></a>
-##### ReadableNumber (int $number, string $delimiter = ',')
-###### 1,020,304,050,607,080
-
-
-
-
-<a name="ReadableNumberToString"></a>
-##### ReadableNumberToString($input, string $lang = 'en')
-###### EN => seven thousand seven hundred twenty-one
-###### AR => سبعة آلاف و سبعة مائة و واحد و عشرون
-
-
-
-
-<a name="ReadableHumanNumber"></a>
-
-##### ReadableHumanNumber (int $number, bool $showDecimal = false, int $decimals = 0)
-###### 77K  ||  77.4K  ||  77.37K
-
-
-
-<a name="ReadableDecimal"></a>
-##### ReadableDecimal ($number, int $decimals = 2, , string $point = '.', string $delimiter = ',')
-###### 60,708.54
-
-
-
-<a name="ReadableDecInt"></a>
-##### ReadableDecInt ($number, int $decimals = 2, , string $point = '.', string $delimiter = ',')
-###### 70 || 70.7
-
-
-
-<a name="ReadableDate"></a>
-##### ReadableDate ($date, string $timezone = null)
-> $date = '24-04-2020' || Carbon Instance
-
-###### 24 April 2020
-
-
-
-<a name="ReadableTime"></a>
-##### ReadableTime ($time, $is12Hours = false, bool $hasSeconds = false, string $timezone = null)
-> $time = '15:20:22' || Carbon Instance
-
-###### Has Seconds     	15:20:22    ||   03:20:22 PM
-###### Hasn't Seconds    15:20     	||   03:20 PM 
-
-
-
-<a name="ReadableDateTime"></a>
-##### ReadableDateTime ($datetime, $is12Hours = false, bool $hasSeconds = false,  string $timezone = null)
-> $datetime = '24-04-2020 17:20:32' || Carbon Instance
-
-###### 12Hours + Has Seconds  	=> Friday, April 24, 2020 05:20:32 PM
-
-
-
-<a name="ReadableDiffDateTime"></a>
-##### ReadableDiffDateTime ($oldDateTime, $newDateTime = null, string $timezone = null)
-> $oldDateTime = '24-04-2020 17:20:32' || Carbon Instance
-> $newDateTime = '24-04-2020 17:20:32' || Carbon Instance || null (now)
-
-###### 27 years before
-
-
-
-<a name="ReadableTimeLength"></a>
-##### ReadableTimeLength (int $seconds, string $comma = ' ', bool $short = false)
-###### 4 years 7 months 1 week 3 days 9 hours 50 minutes 10 seconds
-###### Comma => 4 years - 7 months - 1 week - 3 days - 9 hours - 50 minutes - 10 seconds
-###### Short => 4y 7m 1w 3d 9h 50m 10s
-
-
-
-<a name="ReadableDateTimeLength"></a>
-##### ReadableDateTimeLength ($oldDateTime, $newDateTime = null, bool $fullForm = false, string $comma = ' ', string $timezone = null)
-> $oldDateTime = '24-04-2020 17:20:32' || Carbon Instance
-> $newDateTime = '24-04-2020 17:20:32' || Carbon Instance || null (now)
-
-###### Short-Form  => 27 years before
-###### Full-Form + Comma => 27 years - 1 week - 7 minutes - 7 seconds before
-
-
-
-<a name="ReadableSize"></a>
-##### ReadableSize (int $bytes, bool $decimal = true)
-###### 70 GB
-
-
+We would like to extend our thanks to the following sponsors for funding Pharaonic packages development. If you are interested in becoming a sponsor, please visit the Pharaonic [Liberapay page](https://en.liberapay.com/Pharaonic) or [Patreon page](https://patreon.com/Pharaonic).
 
 ## License
 
-[MIT license](LICENSE.md)
+This package is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
