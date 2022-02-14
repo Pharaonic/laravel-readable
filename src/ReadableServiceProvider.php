@@ -4,8 +4,6 @@ namespace Pharaonic\Laravel\Readable;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Pharaonic\Laravel\Readable\Readable;
-
 
 class ReadableServiceProvider extends ServiceProvider
 {

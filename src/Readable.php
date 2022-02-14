@@ -126,7 +126,9 @@ class Readable
             if ($decInt == 0) {
                 $input = (int) $input;
                 $decimals_length = 0;
-            } 
+            }
+        } else if (is_int($input)) {
+            $decimals_length = 0;
         }
 
         return number_format($input, $decimals_length, $point, $delimiter);
