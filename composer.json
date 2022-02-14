@@ -20,6 +20,9 @@
         "php": ">=7.2",
         "laravel/framework": ">=6.0"
     },
+    "require-dev": {
+        "orchestra/testbench": ">=5.0"
+    },
     "autoload": {
         "psr-4": {
             "Pharaonic\\Laravel\\Readable\\": "src"
@@ -27,6 +30,11 @@
         "files": [
             "src/Helpers.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pharaonic\\Laravel\\Readable\\Tests\\": "tests"
+        }
     },
     "extra": {
         "laravel": {
@@ -37,6 +45,9 @@
                 "Readable": "Pharaonic\\Laravel\\Readable\\Readable"
             }
         }
+    },
+    "config": {
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true
