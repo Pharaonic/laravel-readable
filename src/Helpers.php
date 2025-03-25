@@ -74,7 +74,7 @@ function ReadableDecInt($input, int $decimals_length = 2, string $point = '.', s
  * @param int $input
  * @return string
  **/
-function ReadableDate($input, string $timezone = null): ?string
+function ReadableDate($input, ?string $timezone = null): ?string
 {
     return Readable::getDate($input, $timezone);
 }
@@ -87,7 +87,7 @@ function ReadableDate($input, string $timezone = null): ?string
  * @param null|string $timezone
  * @return string
  **/
-function ReadableTime($input, $is12 = false, bool $hasSeconds = false, string $timezone = null): ?string
+function ReadableTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
 {
     return Readable::getTime($input, $is12, $hasSeconds, $timezone);
 }
@@ -100,7 +100,7 @@ function ReadableTime($input, $is12 = false, bool $hasSeconds = false, string $t
  * @param null|string $timezone
  * @return string
  **/
-function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false,  string $timezone = null): ?string
+function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
 {
     return Readable::getDateTime($input, $is12, $hasSeconds, $timezone);
 }
@@ -113,7 +113,7 @@ function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false,  stri
  * @param null|string $timezone
  * @return string
  **/
-function ReadableDiffDateTime($old, $new = null, string $timezone = null): ?string
+function ReadableDiffDateTime($old, $new = null, ?string $timezone = null): ?string
 {
     return Readable::getDiffDateTime($old, $new, $timezone);
 }
@@ -140,7 +140,7 @@ function ReadableTimeLength(int $input, string $comma = ' ', bool $short = false
  * @param null|string $timezone
  * @return string
  **/
-function ReadableDateTimeLength($old, $new = null, bool $full = false, string $comma = ' ', string $timezone = null): ?string
+function ReadableDateTimeLength($old, $new = null, bool $full = false, string $comma = ' ', ?string $timezone = null): ?string
 {
     return Readable::getDateTimeLength($old, $new, $full, $comma, $timezone);
 }
