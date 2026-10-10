@@ -1,0 +1,26 @@
+name: Feature request
+description: Suggest an idea or improvement.
+title: "[Feature]: "
+labels: [enhancement]
+type: Feature
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What Laravel-specific problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed API
+      description: Show the developer experience you have in mind.
+      render: php
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This belongs in the Laravel integration rather than the framework-agnostic php-readable core.
+          required: true

@@ -1,41 +1,76 @@
-name: build
+name: Build
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - 6.x
+    paths-ignore:
+      - 'README.md'
+  pull_request:
+    branches:
+      - 6.x
+      - develop
+  workflow_dispatch:
+
+permissions:
+  contents: read
 
 jobs:
-  run:
-    runs-on: ${{ matrix.operating-system }}
+  build:
+    name: PHP ${{ matrix.php }} - ${{ matrix.os }} - ${{ matrix.dependencies }}${{ matrix.intl && ' - intl' || '' }}
+
     strategy:
+      max-parallel: 2
+
+      fail-fast: false
+
       matrix:
-        operating-system: [ubuntu-latest]
-        php-versions: ['7.2', '7.3', '7.4', '8.0']
-    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+        php:
+          - "8.0"
+        dependencies:
+          - lowest
+          - highest
+        os:
+          - ubuntu-latest
+          - windows-latest
+        intl:
+          - true
+        include:
+          # ext-intl is optional; only non-English getNumberToString() needs it.
+          - php: "8.0"
+            dependencies: highest
+            os: ubuntu-latest
+            intl: false
+
+    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v1
+        uses: actions/checkout@v7
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: ${{ matrix.php-versions }}
-          extensions: mbstring, intl
+          php-version: ${{ matrix.php }}
+          extensions: fileinfo, mbstring, pdo_sqlite, sqlite3, ${{ matrix.intl && 'intl' || ':intl' }}
           coverage: none
+          tools: composer:v2
 
-      - name: Check PHP Version
-        run: php -v
-
-      - name: Check Composer Version
-        run: composer -V
-
-      - name: Check PHP Extensions
-        run: php -m
-
-      - name: Validate composer.json and composer.lock
-        run: composer validate
+      - name: Validate Composer
+        run: composer validate --strict
 
       - name: Install dependencies
-        run: composer install --prefer-dist --no-progress --no-suggest
+        uses: ramsey/composer-install@v4
+        with:
+          dependency-versions: ${{ matrix.dependencies }}
 
-      - name: Run test suite
-        run: vendor/bin/phpunit
+      - name: Check style
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0' && matrix.dependencies == 'highest' && matrix.intl
+        run: composer style
+
+      - name: Static analysis
+        if: matrix.os == 'ubuntu-latest' && matrix.php == '8.0' && matrix.dependencies == 'highest' && matrix.intl
+        run: composer analyse
+
+      - name: Run tests
+        run: composer test

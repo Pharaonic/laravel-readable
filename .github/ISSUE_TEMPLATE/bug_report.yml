@@ -1,0 +1,62 @@
+name: Bug report
+description: Report reproducible incorrect behavior in Laravel Readable.
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+      placeholder: 'Ubuntu 20.04'
+    validations:
+      required: true
+  - type: input
+    id: php
+    attributes:
+      label: PHP version
+      placeholder: 8.0.x
+    validations:
+      required: true
+  - type: input
+    id: laravel
+    attributes:
+      label: Laravel version
+      placeholder: 6.x
+    validations:
+      required: true
+  - type: input
+    id: package
+    attributes:
+      label: Laravel Readable version
+      placeholder: 6.x.x
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear and concise description of the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Minimal code or steps that reproduce the problem, with the input value.
+      render: php
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected output
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual output
+      description: Include error messages and stack traces if any.
+    validations:
+      required: true
