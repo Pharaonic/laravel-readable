@@ -1,0 +1,19 @@
+- Getting Started
+  - [Overview](#overview)
+  - [Installation](#installation)
+  - [Upgrading from 1.x](#upgrading)
+- Usage
+  - [Basic Usage](#basic-usage)
+  - [Numbers](#numbers)
+  - [Dates & Times](#dates)
+  - [Durations](#durations)
+  - [File Sizes](#file-sizes)
+  - [Helpers](#helpers)
+  - [Blade Directives](#blade-directives)
+- API Reference
+  - [Methods](#api-reference)
+- Examples
+  - [Use Cases](#examples)
+  - [Troubleshooting](#troubleshooting)
+- Community
+  - [Contributors](#contributors)

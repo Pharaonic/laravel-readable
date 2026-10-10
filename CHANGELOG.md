@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 - `getHumanNumber()` supports negative numbers (`-1500` → `-1K`).
 - Compatibility, feature and unit test suites, PHPStan and Laravel Pint.
 - GitHub community files, Dependabot and a PHP 8.0 lowest/highest CI matrix.
+- Package documentation in `docs/` for pharaonic.dev.
 
 ### Changed
 
