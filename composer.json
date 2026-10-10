@@ -1,31 +1,47 @@
 {
     "name": "pharaonic/laravel-readable",
-    "description": "Laravel - Readable Number (Integer|decimal) & DateTime & Time Length & File Size.",
+    "description": "Readable numbers, dates, durations and file sizes for Laravel, as static methods, helpers and Blade directives.",
     "keywords": [
         "php",
         "laravel",
         "human readable",
         "readable",
+        "number format",
+        "file size",
+        "duration",
+        "blade",
         "pharaonic"
     ],
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Raggi",
-            "email": "support@pharaonic.io",
-            "homepage": "https://pharaonic.io"
+            "name": "Moamen Eltouny (Raggi)",
+            "email": "raggigroup@gmail.com"
         }
     ],
+    "support": {
+        "issues": "https://github.com/Pharaonic/laravel-readable/issues",
+        "source": "https://github.com/Pharaonic/laravel-readable"
+    },
     "require": {
-        "php": ">=7.2",
-        "laravel/framework": ">=6.0"
+        "php": ">=8.0 <8.1",
+        "illuminate/support": "^6.20",
+        "illuminate/view": "^6.20",
+        "pharaonic/php-readable": "~8.0.1"
     },
     "require-dev": {
-        "orchestra/testbench": ">=5.0"
+        "laravel/pint": "^1.0",
+        "orchestra/testbench": "^4.18",
+        "phpstan/phpstan": "^2.1",
+        "phpunit/phpunit": "^9.6"
+    },
+    "suggest": {
+        "ext-intl": "Required by Readable::getNumberToString() and the @ReadableNumberToString directive."
     },
     "autoload": {
         "psr-4": {
-            "Pharaonic\\Laravel\\Readable\\": "src"
+            "Pharaonic\\Laravel\\Readable\\": "src/"
         },
         "files": [
             "src/Helpers.php"
@@ -33,7 +49,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Pharaonic\\Laravel\\Readable\\Tests\\": "tests"
+            "Pharaonic\\Laravel\\Readable\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -46,9 +62,25 @@
             }
         }
     },
-    "config": {
-        "sort-packages": true
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse --no-progress",
+        "style": "pint --test",
+        "format": "pint",
+        "check": [
+            "@style",
+            "@analyse",
+            "@test"
+        ]
     },
-    "minimum-stability": "dev",
+    "config": {
+        "sort-packages": true,
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        }
+    },
+    "minimum-stability": "stable",
     "prefer-stable": true
 }

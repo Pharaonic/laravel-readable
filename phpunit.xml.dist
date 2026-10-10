@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
+<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.6/phpunit.xsd"
          bootstrap="vendor/autoload.php"
          colors="true"
-         convertErrorsToExceptions="true"
-         convertNoticesToExceptions="true"
-         convertWarningsToExceptions="true"
-         processIsolation="false"
-         stopOnFailure="false"
->
+         cacheResultFile=".phpunit.cache/test-results">
     <testsuites>
-        <testsuite name="laravel-readable Test Suite">
-            <directory suffix="Test.php">./tests/</directory>
+        <testsuite name="Compatibility">
+            <directory>tests/Compatibility</directory>
+        </testsuite>
+        <testsuite name="Feature">
+            <directory>tests/Feature</directory>
+        </testsuite>
+        <testsuite name="Unit">
+            <directory>tests/Unit</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="false">
-            <directory suffix=".php">./src/</directory>
-        </whitelist>
-    </filter>
+    <coverage>
+        <include>
+            <directory>src</directory>
+        </include>
+    </coverage>
 </phpunit>

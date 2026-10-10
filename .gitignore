@@ -1,3 +1,7 @@
+/.idea
+/.phpunit.cache
+/.phpstan
+/.vscode
 /vendor
 composer.lock
 .phpunit.result.cache
