@@ -6,6 +6,7 @@ on:
       - 6.x
     paths-ignore:
       - 'README.md'
+      - 'docs/**'
   pull_request:
     branches:
       - 6.x

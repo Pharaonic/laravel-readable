@@ -74,7 +74,7 @@ chore/update-dependencies
 - Keep Laravel-specific functionality inside this package.
 - Keep framework-agnostic formatting inside `pharaonic/php-readable`.
 - Do not change an existing output unless it is wrong; add the old and new value to `tests/Unit/LegacyFixesTest.php`.
-- Update `README.md` when the public API or usage changes.
+- Update `/docs` when the public API or usage changes.
 - Update `CHANGELOG.md` under `Unreleased` when applicable.
 - Do not introduce breaking changes without discussing them in an issue first.
 
@@ -206,9 +206,15 @@ Breaking changes may be deferred to a future version branch.
 
 ## Documentation
 
-Documentation lives in `README.md`.
+Documentation lives in:
 
-If your change affects the public API, helpers, Blade directives, or user-facing behavior, update the README in the same pull request.
+```text
+/docs
+```
+
+If your change affects the public API, helpers, Blade directives, or user-facing behavior, update the corresponding documentation in the same pull request.
+
+Code and documentation should remain synchronized.
 
 Code and documentation should remain synchronized.
 
