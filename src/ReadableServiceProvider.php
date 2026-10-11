@@ -38,7 +38,7 @@ class ReadableServiceProvider extends ServiceProvider
     public function boot()
     {
         foreach (self::DIRECTIVES as $directive => $method) {
-            Blade::directive($directive, function ($data) use ($method) {
+            Blade::directive($directive, function (?string $data) use ($method) {
                 return '<?php echo '.Readable::class."::{$method}({$data}); ?>";
             });
         }

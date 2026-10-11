@@ -4,6 +4,7 @@ namespace Pharaonic\Laravel\Readable;
 
 use Carbon\Carbon;
 use Carbon\CarbonInterval;
+use DateTimeInterface;
 use Illuminate\Support\Carbon as IlluminateCarbon;
 use Pharaonic\Readable\Bytes;
 use Pharaonic\Readable\Number;
@@ -123,15 +124,20 @@ class Readable
      *
      * A Carbon instance is copied before its timezone changes, so the caller's instance is never modified.
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
+     *
+     * @param-out \Carbon\Carbon  $input
+     *
      * @return \Carbon\Carbon
      */
     public static function prepareDateTime(&$input, ?string $tz = null)
     {
-        if (! $input instanceof Carbon) {
+        if ($input instanceof Carbon) {
+            $input = $tz ? clone $input : $input;
+        } elseif ($input instanceof DateTimeInterface) {
+            $input = IlluminateCarbon::instance($input);
+        } else {
             $input = IlluminateCarbon::parse($input);
-        } elseif ($tz) {
-            $input = $input->copy();
         }
 
         if ($tz) {
@@ -144,7 +150,7 @@ class Readable
     /**
      * Get Readable Date
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      * @return string
      */
     public static function getDate($input, ?string $timezone = null): ?string
@@ -157,7 +163,7 @@ class Readable
     /**
      * Get Readable Time
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
      * @return string
      */
@@ -175,7 +181,7 @@ class Readable
     /**
      * Get Readable DateTime
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
      * @return string
      */
@@ -189,8 +195,8 @@ class Readable
     /**
      * Get Readable DateTime
      *
-     * @param  mixed  $old
-     * @param  mixed  $new
+     * @param  \DateTimeInterface|string|null  $old
+     * @param  \DateTimeInterface|string|null  $new
      * @return string
      */
     public static function getDiffDateTime($old, $new = null, ?string $timezone = null): ?string
@@ -229,8 +235,8 @@ class Readable
     /**
      * Get Readable DateTime Length from DateTimes
      *
-     * @param  mixed  $old
-     * @param  mixed  $new
+     * @param  \DateTimeInterface|string|null  $old
+     * @param  \DateTimeInterface|string|null  $new
      * @return string
      */
     public static function getDateTimeLength($old, $new = null, bool $full = false, string $comma = ' ', ?string $timezone = null): ?string

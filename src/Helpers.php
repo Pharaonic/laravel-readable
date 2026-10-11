@@ -66,7 +66,7 @@ if (! function_exists('ReadableDate')) {
     /**
      * Get Readable Date
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      */
     function ReadableDate($input, ?string $timezone = null): ?string
     {
@@ -78,7 +78,7 @@ if (! function_exists('ReadableTime')) {
     /**
      * Get Readable Time
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
      */
     function ReadableTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
@@ -91,7 +91,7 @@ if (! function_exists('ReadableDateTime')) {
     /**
      * Get Readable DateTime
      *
-     * @param  mixed  $input
+     * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
      */
     function ReadableDateTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
@@ -104,8 +104,8 @@ if (! function_exists('ReadableDiffDateTime')) {
     /**
      * Get Readable DateTime Difference
      *
-     * @param  mixed  $old
-     * @param  mixed  $new
+     * @param  \DateTimeInterface|string|null  $old
+     * @param  \DateTimeInterface|string|null  $new
      */
     function ReadableDiffDateTime($old, $new = null, ?string $timezone = null): ?string
     {
@@ -127,8 +127,8 @@ if (! function_exists('ReadableDateTimeLength')) {
     /**
      * Get Readable DateTime Length from DateTimes
      *
-     * @param  mixed  $old
-     * @param  mixed  $new
+     * @param  \DateTimeInterface|string|null  $old
+     * @param  \DateTimeInterface|string|null  $new
      */
     function ReadableDateTimeLength($old, $new = null, bool $full = false, string $comma = ' ', ?string $timezone = null): ?string
     {
