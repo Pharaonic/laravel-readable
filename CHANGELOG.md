@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 12.0.0 - Unreleased
+
+### Compatibility
+
+- Laravel 12 on PHP 8.2, 8.3, 8.4 or 8.5.
+- Requires `pharaonic/php-readable` `~8.2.2` on PHP 8.2, `~8.3.2` on PHP 8.3, `~8.4.2` on PHP 8.4 or `~8.5.2` on PHP 8.5.
+- The same API and outputs as 11.0.0, including the deprecated 1.x names.
+
 ## 11.0.0 - Unreleased
 
 ### Compatibility
