@@ -1,31 +1,49 @@
 {
     "name": "pharaonic/laravel-readable",
-    "description": "Laravel - Readable Number (Integer|decimal) & DateTime & Time Length & File Size.",
+    "description": "Readable numbers, dates, durations and file sizes for Laravel, as static methods, helpers and Blade directives.",
     "keywords": [
         "php",
         "laravel",
         "human readable",
         "readable",
+        "number format",
+        "file size",
+        "duration",
+        "blade",
         "pharaonic"
     ],
+    "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Raggi",
-            "email": "support@pharaonic.io",
-            "homepage": "https://pharaonic.io"
+            "name": "Moamen Eltouny (Raggi)",
+            "email": "raggigroup@gmail.com"
         }
     ],
+    "support": {
+        "docs": "https://pharaonic.dev/packages/laravel/readable",
+        "issues": "https://github.com/Pharaonic/laravel-readable/issues",
+        "source": "https://github.com/Pharaonic/laravel-readable"
+    },
     "require": {
-        "php": ">=7.2",
-        "laravel/framework": ">=6.0"
+        "php": ">=8.3 <8.6",
+        "illuminate/support": "^13.0",
+        "illuminate/view": "^13.0",
+        "pharaonic/php-readable": "~8.3.2 || ~8.4.2 || ~8.5.2"
     },
     "require-dev": {
-        "orchestra/testbench": ">=5.0"
+        "laravel/pint": "^1.20",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.0",
+        "phpstan/phpstan": "^2.1.33",
+        "phpunit/phpunit": "^12.5.8"
+    },
+    "suggest": {
+        "ext-intl": "Required by Readable::getNumberInWords(), readable_number_in_words() and @readableNumberInWords for locales other than English."
     },
     "autoload": {
         "psr-4": {
-            "Pharaonic\\Laravel\\Readable\\": "src"
+            "Pharaonic\\Laravel\\Readable\\": "src/"
         },
         "files": [
             "src/Helpers.php"
@@ -33,7 +51,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Pharaonic\\Laravel\\Readable\\Tests\\": "tests"
+            "Pharaonic\\Laravel\\Readable\\Tests\\": "tests/"
         }
     },
     "extra": {
@@ -46,9 +64,33 @@
             }
         }
     },
+    "scripts": {
+        "test": "@php vendor/bin/pest",
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=1G",
+        "format": "@php vendor/bin/pint",
+        "format:check": "@php vendor/bin/pint --test",
+        "security": "@composer audit",
+        "check": [
+            "@composer validate --strict",
+            "@format:check",
+            "@analyse",
+            "@test",
+            "@security"
+        ]
+    },
     "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        },
+        "audit": {
+            "abandoned": "report"
+        },
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        },
         "sort-packages": true
     },
-    "minimum-stability": "dev",
     "prefer-stable": true
 }

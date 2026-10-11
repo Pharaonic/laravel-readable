@@ -1,55 +1,50 @@
-<p align="center"><a href="https://pharaonic.io" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg"></a></p>
+<p align="center"><a href="https://pharaonic.dev/packages/laravel/readable" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/laravel-readable/develop/docs/cover.webp"></a></p>
 
 <p align="center">
-  <a href="https://php.net" target="_blank"><img src="https://img.shields.io/static/v1?label=PHP&message=%3E=7.2&color=blue&style=flat-square" alt="PHP Version : >= 7.2"></a>
-  <a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/static/v1?label=Laravel&message=%3E=6.0&color=F05340&style=flat-square" alt="Laravel Version : >= 6.0"></a>
+  <a href="https://php.net" target="_blank"><img src="https://img.shields.io/static/v1?label=PHP&message=8.3%20|%208.4%20|%208.5&color=blue&style=flat-square" alt="PHP Version : 8.3 | 8.4 | 8.5"></a>
+  <a href="https://laravel.com" target="_blank"><img src="https://img.shields.io/static/v1?label=Laravel&message=13.x&color=F05340&style=flat-square" alt="Laravel Version : 13.x"></a>
   <img src="https://img.shields.io/static/v1?label=License&message=MIT&color=brightgreen&style=flat-square" alt="License">
-  <img src="https://github.com/Pharaonic/laravel-readable/actions/workflows/build.yml/badge.svg" alt="Tests">
+  <img src="https://github.com/Pharaonic/laravel-readable/actions/workflows/build.yml/badge.svg?branch=13.x" alt="Build">
   <br>
   <a href="https://packagist.org/packages/Pharaonic/laravel-readable" target="_blank"><img src="https://img.shields.io/static/v1?label=Packagist&message=pharaonic/laravel-readable&color=blue&logo=packagist&logoColor=white" alt="Source"></a>
   <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-readable/v" alt="Packagist Version"></a>
   <a href="https://packagist.org/packages/pharaonic/laravel-readable" target="_blank"><img src="https://poser.pugx.org/pharaonic/laravel-readable/downloads" alt="Packagist Downloads"></a>
 </p>
 
-<h3 align="center">Readable provides a quick and easy functions & blade directives.</h3>
+<h3 align="center">Readable numbers, dates, durations and file sizes for Laravel.</h3>
+<h5 align="center">Powered by <a href="https://pharaonic.dev/packages/php/readable" target="_blank">PHP Readable</a>.</h5>
 <br>
 
-- ###### Number. 				   		(1,020,304,050,607,080)
+## Installation
 
-- ###### NumberToString. 	       ( seven thousand seven hundred twenty-one )  {PHP Extension intl}
+```bash
+composer require pharaonic/laravel-readable
+```
 
-- ###### HumanNumber.  	    	( 77K  ||  77.4K  ||  77.37K )
+The service provider is registered automatically. There is nothing to publish.
 
-- ###### Decimal. 					  	 ( 60,708.547 )
+## Usage
 
-- ###### DecInt. 					  	 ( 70.00 => 70 || 70.07 )
+```php
+use Pharaonic\Laravel\Readable\Readable;
 
-- ###### Date. 					  	   	( 24 April 2020 )
+Readable::getCompactNumber(77700);  // "77K"
+Readable::getDuration(3661);        // "1 hour 1 minute 1 second"
+readable_file_size(1500);           // "1.5 KB"
+```
 
-- ###### Time. 					  	   	( 15:20   ||   15:20:22   ||   03:20 PM   ||   03:20:22 PM )
-
-- ###### DateTime. 					    ( Friday, April 24, 2020 05:20 PM )
-
-- ###### DateTime Difference.    ( 27 years before )
-
-- ###### Time Length.    	   	     ( 4 years 7 months 1 week 3 days 9 hours 50 minutes 10 seconds )
-
-- ###### Short Time Length.    	   	     ( 4y 7m 1w 3d 9h 50m 10s )
-
-- ###### DateTime Length.    	   ( 27 years - 1 week - 7 minutes - 7 seconds before )
-
-- ###### File Size.    	 	 	 	 	 ( 70 GB )
-<br>
-
+```blade
+@readableDate($post->published_at) · @readableCompactNumber($post->views) views
+```
 
 ## Documentation
 
-You can find the detailed documentation here in [Laravel Readable Documentation](https://pharaonic.io/packages/laravel/readable).
+Full documentation: [Laravel Readable Documentation](https://pharaonic.dev/packages/laravel/readable).
 
-## Contributing
+## Support & Security
 
-Thank you for considering contributing to this package! Be one of Pharaonic team.
+See [SUPPORT.md](SUPPORT.md) and [SECURITY.md](SECURITY.md). Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This package is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT. See [LICENSE](LICENSE).

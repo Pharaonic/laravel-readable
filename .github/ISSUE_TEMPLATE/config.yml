@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: "https://pharaonic.dev/packages/laravel/readable"
+    about: Check the documentation before opening an issue.
+  - name: Security vulnerability
+    url: "https://github.com/Pharaonic/laravel-readable/security"
+    about: Do not report security vulnerabilities in public issues.
+  - name: Community support
+    url: "https://discord.gg/XQG9RhvEvf"
+    about: Get help from the Pharaonic Discord community.
