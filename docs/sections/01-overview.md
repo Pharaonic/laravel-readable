@@ -29,5 +29,5 @@ Print 29 years before, or every unit between two dates.
 :::
 
 :::info Quick Tip
-Directives, helpers and methods share one implementation. `@ReadableSize($bytes)`, `ReadableSize($bytes)` and `Readable::getSize($bytes)` always print the same thing.
+Directives, helpers and methods share one implementation. `@readableFileSize($bytes)`, `readable_file_size($bytes)` and `Readable::getFileSize($bytes)` always print the same thing.
 :::

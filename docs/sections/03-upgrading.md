@@ -1,12 +1,51 @@
 ## Upgrading from 1.x
 
-Every 1.x method, helper, Blade directive and the `Readable` alias keep their names and signatures, and every correct 1.x output is unchanged. The upgrade fixes values that 1.x got wrong.
+Every 1.x method, helper, Blade directive and the `Readable` alias still work with the same signatures, and every correct 1.x output is unchanged. The upgrade fixes values that 1.x got wrong and introduces clearer names; the 1.x names stay as deprecated aliases.
 
 ### Requirements
 
 6.x requires PHP 8.0 and Laravel 6.20+. The package now depends on `illuminate/support`, `illuminate/view` and `pharaonic/php-readable` instead of `laravel/framework`.
 
+### Renamed APIs
+
+Six methods have clearer names, helpers are now `snake_case`, and Blade directives are now camelCase. The 1.x names call the new ones and return the same values.
+
+| 1.x method | 6.x method |
+| --- | --- |
+| `getHumanNumber()` | `getCompactNumber()` |
+| `getNumberToString()` | `getNumberInWords()` |
+| `getDecInt()` | `getDecimalOrInteger()` |
+| `getDiffDateTime()` | `getRelativeDateTime()` |
+| `getTimeLength()` | `getDuration()` |
+| `getSize()` | `getFileSize()` |
+
+Helpers and directives follow the method names:
+
+| 1.x helper | 6.x helper | 1.x directive | 6.x directive |
+| --- | --- | --- | --- |
+| `ReadableNumber()` | `readable_number()` | `@ReadableNumber` | `@readableNumber` |
+| `ReadableHumanNumber()` | `readable_compact_number()` | `@ReadableHumanNumber` | `@readableCompactNumber` |
+| `ReadableNumberToString()` | `readable_number_in_words()` | `@ReadableNumberToString` | `@readableNumberInWords` |
+| `ReadableDecimal()` | `readable_decimal()` | `@ReadableDecimal` | `@readableDecimal` |
+| `ReadableDecInt()` | `readable_decimal_or_integer()` | `@ReadableDecInt` | `@readableDecimalOrInteger` |
+| `ReadableDate()` | `readable_date()` | `@ReadableDate` | `@readableDate` |
+| `ReadableTime()` | `readable_time()` | `@ReadableTime` | `@readableTime` |
+| `ReadableDateTime()` | `readable_date_time()` | `@ReadableDateTime` | `@readableDateTime` |
+| `ReadableDiffDateTime()` | `readable_relative_date_time()` | `@ReadableDiffDateTime` | `@readableRelativeDateTime` |
+| `ReadableTimeLength()` | `readable_duration()` | `@ReadableTimeLength` | `@readableDuration` |
+| `ReadableDateTimeLength()` | `readable_date_time_length()` | `@ReadableDateTimeLength` | `@readableDateTimeLength` |
+| `ReadableSize()` | `readable_file_size()` | `@ReadableSize` | `@readableFileSize` |
+
+The new methods also use clearer parameter names, which matters only with named arguments: `$locale` instead of `$lang`, `$decimals` instead of `$decimals_length`, `$separator` instead of `$comma`, and `$seconds` instead of `$input` in `getDuration()`. The deprecated names keep their 1.x parameter names.
+
+:::warning Deprecated Names
+The 1.x names are deprecated. They keep working on every current line and are removed in the first line that supports PHP 8.6. Move to the new names when you upgrade.
+:::
+
 ### Fixed Values
+
+The table uses the 1.x names; the new names return the same values.
+
 
 | Call | 1.x | 6.x |
 | --- | --- | --- |
@@ -34,13 +73,13 @@ $date->tzName;                           // "UTC" (1.x: "Asia/Riyadh")
 
 ### Other Changes
 
-- `getNumberToString()` spells English without the intl extension. Other languages throw `MissingIntlExtension` when intl is missing.
-- `getNumberToString(INF)` and `getNumberToString(NAN)` throw `InvalidArgumentException` (1.x printed `infinity` and `not a number`).
-- `getTimeLength()` counts a year as 365 days (it was 360). A month is still 30 days.
+- `getNumberInWords()` spells English without the intl extension. Other languages throw `MissingIntlExtension` when intl is missing.
+- `getNumberInWords(INF)` and `getNumberInWords(NAN)` throw `InvalidArgumentException` (1.x printed `infinity` and `not a number`).
+- `getDuration()` counts a year as 365 days (it was 360). A month is still 30 days.
 - Binary sizes between 1000 and 1023 units are grouped: `1,000 KiB`.
 - `Readable::prepareDateTime()` also returns the prepared instance.
 - Global helpers are declared only when a function with the same name doesn't already exist.
 
 :::info Unchanged on Purpose
-`getHumanNumber()` still truncates without decimals (`77700` → `77K`), `getSize()` still returns `null` for negative sizes, and Blade directives still echo without escaping.
+`getCompactNumber()` still truncates without decimals (`77700` → `77K`), `getFileSize()` still returns `null` for negative sizes, and Blade directives still echo without escaping.
 :::

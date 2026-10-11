@@ -20,15 +20,15 @@ The latest release requires {package.requiresText}.
 
 ## Do I need the intl extension?
 
-Only to spell numbers in a language other than English, such as `ReadableNumberToString(21, 'ar')`. English spelling and every other formatter work without it.
+Only to spell numbers in a language other than English, such as `readable_number_in_words(21, 'ar')`. English spelling and every other formatter work without it.
 
 ## Are dates and durations translated?
 
 Yes. Month names, day names and words such as `years` and `before` come from Carbon, which follows your application locale.
 
-## Why does `ReadableHumanNumber(1500)` print `1K`?
+## Why does `readable_compact_number(1500)` print `1K`?
 
-Without decimals the value is truncated to whole units, so a counter never shows more than it has. Pass `true` to show a rounded decimal: `ReadableHumanNumber(1500, true)` prints `1.5K`.
+Without decimals the value is truncated to whole units, so a counter never shows more than it has. Pass `true` to show a rounded decimal: `readable_compact_number(1500, true)` prints `1.5K`.
 
 ## Is the Blade output escaped?
 

@@ -34,12 +34,12 @@ Readable::getDateTime('24-04-2020 17:20:30', true, true); // "Friday, April 24, 
 
 ### Difference
 
-`getDiffDateTime($old, $new = null, $timezone = null)` prints the largest unit between two dates. Without `$new`, it compares with now.
+`getRelativeDateTime($date, $other = null, $timezone = null)` prints the largest unit between two dates. Without `$other`, it compares with now.
 
 ```php
-Readable::getDiffDateTime('01-02-1993 19:00:00', '01-02-2022 19:00:00'); // "29 years before"
-Readable::getDiffDateTime('2022-01-01', '1993-01-01');                   // "29 years after"
-Readable::getDiffDateTime(now()->subHour());                             // "1 hour before"
+Readable::getRelativeDateTime('01-02-1993 19:00:00', '01-02-2022 19:00:00'); // "29 years before"
+Readable::getRelativeDateTime('2022-01-01', '1993-01-01');                   // "29 years after"
+Readable::getRelativeDateTime(now()->subHour());                             // "1 hour before"
 ```
 
 ### Full Difference

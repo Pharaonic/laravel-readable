@@ -18,5 +18,5 @@ composer require pharaonic/laravel-readable
 There is no configuration to publish and no migration to run.
 
 :::success Installation Complete
-You're all set! Try `@ReadableNumber(10203040)` in any Blade view.
+You're all set! Try `@readableNumber(10203040)` in any Blade view.
 :::

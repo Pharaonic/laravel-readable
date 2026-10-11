@@ -1,4 +1,4 @@
-<p align="center"><a href="https://pharaonic.dev/packages/laravel/readable" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/logos/main/readable.jpg"></a></p>
+<p align="center"><a href="https://pharaonic.dev/packages/laravel/readable" target="_blank"><img src="https://raw.githubusercontent.com/Pharaonic/laravel-readable/develop/docs/cover.webp"></a></p>
 
 <p align="center">
   <a href="https://php.net" target="_blank"><img src="https://img.shields.io/static/v1?label=PHP&message=8.0&color=blue&style=flat-square" alt="PHP Version : 8.0"></a>
@@ -15,14 +15,36 @@
 <h5 align="center">Powered by <a href="https://pharaonic.dev/packages/php/readable" target="_blank">PHP Readable</a>.</h5>
 <br>
 
+## Installation
+
+```bash
+composer require pharaonic/laravel-readable
+```
+
+The service provider is registered automatically. There is nothing to publish.
+
+## Usage
+
+```php
+use Pharaonic\Laravel\Readable\Readable;
+
+Readable::getCompactNumber(77700);  // "77K"
+Readable::getDuration(3661);        // "1 hour 1 minute 1 second"
+readable_file_size(1500);           // "1.5 KB"
+```
+
+```blade
+@readableDate($post->published_at) · @readableCompactNumber($post->views) views
+```
+
 ## Documentation
 
-You can find the detailed documentation here in [Laravel Readable Documentation](https://pharaonic.dev/packages/laravel/readable).
+Full documentation: [Laravel Readable Documentation](https://pharaonic.dev/packages/laravel/readable).
 
-## Contributing
+## Support & Security
 
-Thank you for considering contributing to this package! Be one of Pharaonic team.
+See [SUPPORT.md](SUPPORT.md) and [SECURITY.md](SECURITY.md). Contributions are welcome; see [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 
-This package is an open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+MIT. See [LICENSE](LICENSE).

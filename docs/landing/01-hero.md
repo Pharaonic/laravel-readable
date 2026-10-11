@@ -27,4 +27,4 @@ labels:
   copied: Copied!
 ---
 
-Readable numbers, dates and sizes in Laravel, zero setup. Print `77.7K`, `1.5 KB` or `3 months 29 minutes` with `@ReadableHumanNumber`, `@ReadableSize` and `@ReadableTimeLength`.
+Readable numbers, dates and sizes in Laravel, zero setup. Print `77.7K`, `1.5 KB` or `3 months 29 minutes` with `@readableCompactNumber`, `@readableFileSize` and `@readableDuration`.

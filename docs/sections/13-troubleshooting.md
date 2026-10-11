@@ -2,11 +2,11 @@
 
 ### `TypeError: Wrong Input Type.`
 
-`getDecimal()`, `getDecInt()` and `getNumberToString()` accept only `int` and `float`. Database columns such as `decimal` come back as strings, so cast them: `ReadableDecimal((float) $order->total)`.
+`getDecimal()`, `getDecimalOrInteger()` and `getNumberInWords()` accept only `int` and `float`. Database columns such as `decimal` come back as strings, so cast them: `readable_decimal((float) $order->total)`.
 
 ### `MissingIntlExtension` when spelling a number
 
-You passed a language other than `en` to `getNumberToString()` and the intl extension isn't installed. Install `ext-intl`, or use English.
+You passed a language other than `en` to `getNumberInWords()` and the intl extension isn't installed. Install `ext-intl`, or use English.
 
 ### Dates are in English although my app is in another language
 
@@ -14,16 +14,16 @@ Carbon follows `app()->setLocale()`. Set the locale before rendering, for exampl
 
 ### The time is off by a few hours
 
-The input is parsed in the application timezone (`config/app.php` → `timezone`). Pass the viewer's timezone as the last argument, such as `ReadableTime($date, true, false, 'Africa/Cairo')`.
+The input is parsed in the application timezone (`config/app.php` → `timezone`). Pass the viewer's timezone as the last argument, such as `readable_time($date, true, false, 'Africa/Cairo')`.
 
-### `@ReadableDate` throws `Too few arguments`
+### `@readableDate` throws `Too few arguments`
 
-The directive needs at least one argument. Use `@ReadableDate(null)` for today's date.
+The directive needs at least one argument. Use `@readableDate(null)` for today's date.
 
-### `@ReadableSize` prints nothing
+### `@readableFileSize` prints nothing
 
-The size is negative. `getSize()` returns `null` for negative sizes, and `0` prints `0 B`.
+The size is negative. `getFileSize()` returns `null` for negative sizes, and `0` prints `0 B`.
 
 ### A helper does something different
 
-Another package or your app declared a function with the same name first, for example `ReadableSize()`. Call the static method instead: `Readable::getSize()`.
+Another package or your app declared a function with the same name first, for example `readable_file_size()`. Call the static method instead: `Readable::getFileSize()`.

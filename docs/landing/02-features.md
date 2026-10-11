@@ -22,5 +22,5 @@ items:
     text: Decimal (`1.5 KB`) or binary (`7 KiB`) units, from bytes up to yottabytes.
   - icon: code-brackets
     title: Three Ways to Call
-    text: '`Readable::getSize()`, `ReadableSize()` or `@ReadableSize()`, with the same arguments.'
+    text: '`Readable::getFileSize()`, `readable_file_size()` or `@readableFileSize()`, with the same arguments.'
 ---
