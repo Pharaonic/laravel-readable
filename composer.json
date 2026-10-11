@@ -26,14 +26,14 @@
         "source": "https://github.com/Pharaonic/laravel-readable"
     },
     "require": {
-        "php": ">=8.0 <8.1",
-        "illuminate/support": "^7.30",
-        "illuminate/view": "^7.30",
-        "pharaonic/php-readable": "~8.0.3"
+        "php": ">=8.0 <8.2",
+        "illuminate/support": "^8.75",
+        "illuminate/view": "^8.75",
+        "pharaonic/php-readable": "~8.0.3 || ~8.1.2"
     },
     "require-dev": {
         "laravel/pint": "^1.5",
-        "orchestra/testbench": "^5.20",
+        "orchestra/testbench": "^6.25",
         "pestphp/pest": "^1.23",
         "phpstan/phpstan": "^2.1",
         "phpunit/phpunit": "^9.6.33"
@@ -89,9 +89,8 @@
             "advisories": {
                 "block": false,
                 "ignore": {
-                    "laravel/framework": "No fixed release within Laravel 7; the application chooses the framework release.",
-                    "league/commonmark": "No fixed release within Laravel 7; the application chooses the framework release.",
-                    "league/flysystem": "No fixed release within Laravel 7; the application chooses the framework release."
+                    "laravel/framework": "No fixed release within Laravel 8; the application chooses the framework release.",
+                    "league/flysystem": "No fixed release within Laravel 8; the application chooses the framework release."
                 }
             }
         },
