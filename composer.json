@@ -26,17 +26,17 @@
         "source": "https://github.com/Pharaonic/laravel-readable"
     },
     "require": {
-        "php": ">=8.2 <8.6",
-        "illuminate/support": "^12.0",
-        "illuminate/view": "^12.0",
-        "pharaonic/php-readable": "~8.2.2 || ~8.3.2 || ~8.4.2 || ~8.5.2"
+        "php": ">=8.3 <8.6",
+        "illuminate/support": "^13.0",
+        "illuminate/view": "^13.0",
+        "pharaonic/php-readable": "~8.3.2 || ~8.4.2 || ~8.5.2"
     },
     "require-dev": {
         "laravel/pint": "^1.20",
-        "orchestra/testbench": "^10.0",
-        "pestphp/pest": "^3.8 || ^4.0",
+        "orchestra/testbench": "^11.0",
+        "pestphp/pest": "^4.0",
         "phpstan/phpstan": "^2.1.33",
-        "phpunit/phpunit": "^11.5.50 || ^12.5.8"
+        "phpunit/phpunit": "^12.5.8"
     },
     "suggest": {
         "ext-intl": "Required by Readable::getNumberInWords(), readable_number_in_words() and @readableNumberInWords for locales other than English."
