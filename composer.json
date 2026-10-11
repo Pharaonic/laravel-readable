@@ -26,17 +26,17 @@
         "source": "https://github.com/Pharaonic/laravel-readable"
     },
     "require": {
-        "php": ">=8.1 <8.4",
-        "illuminate/support": "^10.0",
-        "illuminate/view": "^10.0",
-        "pharaonic/php-readable": "~8.1.2 || ~8.2.2 || ~8.3.2"
+        "php": ">=8.2 <8.5",
+        "illuminate/support": "^11.0",
+        "illuminate/view": "^11.0",
+        "pharaonic/php-readable": "~8.2.2 || ~8.3.2 || ~8.4.2"
     },
     "require-dev": {
         "laravel/pint": "^1.20",
-        "orchestra/testbench": "^8.0",
-        "pestphp/pest": "^1.23",
+        "orchestra/testbench": "^9.0",
+        "pestphp/pest": "^3.8",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^9.6.33"
+        "phpunit/phpunit": "^11.5.50"
     },
     "suggest": {
         "ext-intl": "Required by Readable::getNumberInWords(), readable_number_in_words() and @readableNumberInWords for locales other than English."
@@ -89,7 +89,7 @@
             "advisories": {
                 "block": false,
                 "ignore": {
-                    "laravel/framework": "No fixed release within Laravel 10; the application chooses the framework release."
+                    "laravel/framework": "No fixed release within Laravel 11; the application chooses the framework release."
                 }
             }
         },
