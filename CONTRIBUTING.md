@@ -29,13 +29,14 @@ Use the branch matching the Laravel version you want to support.
 9.x → Laravel 9
 10.x → Laravel 10
 11.x → Laravel 11
+12.x → Laravel 12
 ```
 
 Example:
 
 ```bash
-git checkout 11.x
-git pull upstream 11.x
+git checkout 12.x
+git pull upstream 12.x
 ```
 
 Always start your work from the appropriate Laravel version branch.
@@ -107,7 +108,7 @@ The package must also be tested against the Laravel version targeted by the bran
 For example:
 
 ```text
-11.x → Laravel 11
+12.x → Laravel 12
 ```
 
 ## Commit your changes
@@ -119,7 +120,7 @@ Examples:
 ```text
 Add locale support to getCompactNumber
 Fix size rounding at unit boundaries
-Update Laravel 11 compatibility
+Update Laravel 12 compatibility
 Update usage documentation
 ```
 
@@ -147,7 +148,7 @@ Example:
 ```text
 fix/size-rounding
         ↓
-       11.x
+       12.x
 ```
 
 Do not submit the pull request against another Laravel version branch.
