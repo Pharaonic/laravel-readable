@@ -89,7 +89,6 @@ class Readable
      * Get Readable Decimal Number
      *
      * @param  int|float  $input
-     * @return string
      */
     public static function getDecimal($input, int $decimals = 2, string $point = '.', string $delimiter = ','): ?string
     {
@@ -151,7 +150,6 @@ class Readable
      * Get Readable Date
      *
      * @param  \DateTimeInterface|string|null  $input
-     * @return string
      */
     public static function getDate($input, ?string $timezone = null): ?string
     {
@@ -165,7 +163,6 @@ class Readable
      *
      * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
-     * @return string
      */
     public static function getTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
     {
@@ -183,7 +180,6 @@ class Readable
      *
      * @param  \DateTimeInterface|string|null  $input
      * @param  bool  $is12
-     * @return string
      */
     public static function getDateTime($input, $is12 = false, bool $hasSeconds = false, ?string $timezone = null): ?string
     {
@@ -234,7 +230,6 @@ class Readable
      *
      * @param  \DateTimeInterface|string|null  $old
      * @param  \DateTimeInterface|string|null  $new
-     * @return string
      */
     public static function getDateTimeLength($old, $new = null, bool $full = false, string $comma = ' ', ?string $timezone = null): ?string
     {
