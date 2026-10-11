@@ -2,7 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## Unreleased
+## 7.0.0 - Unreleased
+
+### Compatibility
+
+- Laravel 7.30+ on PHP 8.0.
+- Requires `pharaonic/php-readable` `~8.0.3`.
+- The same API and outputs as 6.0.0, including the deprecated 1.x names.
+
+## 6.0.0 - Unreleased
 
 ### Added
 
@@ -65,7 +73,7 @@ Each value below was wrong in 1.x:
 ### Compatibility
 
 - Laravel 6.x on PHP 8.0.
-- Requires `pharaonic/php-readable` `~8.0.1`.
+- Requires `pharaonic/php-readable` `~8.0.3`.
 - Every 1.x method, helper, Blade directive and the `Readable` alias keep their names and signatures.
 - Every output not listed under Fixed is unchanged, including `getHumanNumber()` truncating without decimals (`77700` → `77K`), 30-day months in `getTimeLength()` and unescaped Blade output.
 - `getNumberToString()` throws `InvalidArgumentException` for `INF` and `NAN` (1.x printed `infinity` and `not a number`), and `MissingIntlExtension` for a non-English language without intl.
