@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## 9.0.0 - Unreleased
+## 9.0.0 - 2026-10-11
 
 ### Compatibility
 
@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - Requires `pharaonic/php-readable` `~8.0.3` on PHP 8.0, `~8.1.2` on PHP 8.1 or `~8.2.2` on PHP 8.2.
 - The same API and outputs as 8.0.0, including the deprecated 1.x names.
 
-## 8.0.0 - Unreleased
+## 8.0.0 - 2026-10-11
 
 ### Compatibility
 
@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file.
 - Requires `pharaonic/php-readable` `~8.0.3` on PHP 8.0 or `~8.1.2` on PHP 8.1.
 - The same API and outputs as 7.0.0, including the deprecated 1.x names.
 
-## 7.0.0 - Unreleased
+## 7.0.0 - 2026-10-11
 
 ### Compatibility
 
@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 - Requires `pharaonic/php-readable` `~8.0.3`.
 - The same API and outputs as 6.0.0, including the deprecated 1.x names.
 
-## 6.0.0 - Unreleased
+## 6.0.0 - 2026-10-11
 
 ### Added
 
