@@ -21,6 +21,7 @@
         }
     ],
     "support": {
+        "docs": "https://pharaonic.dev/packages/laravel/readable",
         "issues": "https://github.com/Pharaonic/laravel-readable/issues",
         "source": "https://github.com/Pharaonic/laravel-readable"
     },
@@ -28,13 +29,13 @@
         "php": ">=8.0 <8.1",
         "illuminate/support": "^6.20",
         "illuminate/view": "^6.20",
-        "pharaonic/php-readable": "~8.0.1"
+        "pharaonic/php-readable": "~8.0.3"
     },
     "require-dev": {
-        "laravel/pint": "^1.0",
+        "laravel/pint": "^1.5",
         "orchestra/testbench": "^4.18",
         "phpstan/phpstan": "^2.1",
-        "phpunit/phpunit": "^9.6"
+        "phpunit/phpunit": "^9.6.33"
     },
     "suggest": {
         "ext-intl": "Required by Readable::getNumberToString() and the @ReadableNumberToString directive."
@@ -63,24 +64,37 @@
         }
     },
     "scripts": {
-        "test": "phpunit",
-        "analyse": "phpstan analyse --no-progress",
-        "style": "pint --test",
-        "format": "pint",
+        "test": "@php vendor/bin/phpunit",
+        "analyse": "@php vendor/bin/phpstan analyse --memory-limit=1G",
+        "format": "@php vendor/bin/pint",
+        "format:check": "@php vendor/bin/pint --test",
+        "security": "@composer audit",
         "check": [
-            "@style",
+            "@composer validate --strict",
+            "@format:check",
             "@analyse",
-            "@test"
+            "@test",
+            "@security"
         ]
     },
     "config": {
-        "sort-packages": true,
+        "audit": {
+            "abandoned": "report"
+        },
         "policy": {
             "advisories": {
-                "block": false
+                "block": false,
+                "ignore": {
+                    "laravel/framework": "No fixed release within Laravel 6; the application chooses the framework release.",
+                    "league/commonmark": "No fixed release within Laravel 6; the application chooses the framework release.",
+                    "league/flysystem": "No fixed release within Laravel 6; the application chooses the framework release.",
+                    "symfony/http-foundation": "No fixed release within Laravel 6; the application chooses the framework release.",
+                    "symfony/process": "No fixed release within Laravel 6; the application chooses the framework release.",
+                    "symfony/routing": "No fixed release within Laravel 6; the application chooses the framework release."
+                }
             }
-        }
+        },
+        "sort-packages": true
     },
-    "minimum-stability": "stable",
     "prefer-stable": true
 }
