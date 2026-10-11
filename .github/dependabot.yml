@@ -1,19 +1,22 @@
+# Dependabot only opens PRs against develop. Laravel lines (N.x) receive
+# tooling updates through the normal port flow, retested on their own PHP range.
 version: 2
-
 updates:
   - package-ecosystem: composer
-    directory: /
+    directory: "/"
+    target-branch: develop
     schedule:
-      interval: monthly
-    versioning-strategy: widen
+      interval: weekly
     groups:
-      dev-dependencies:
+      development-dependencies:
         dependency-type: development
 
   - package-ecosystem: github-actions
-    directory: /
+    directory: "/"
+    target-branch: develop
     schedule:
-      interval: monthly
+      interval: weekly
     groups:
       github-actions:
-        patterns: ["*"]
+        patterns:
+          - "*"
