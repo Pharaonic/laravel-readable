@@ -38,7 +38,7 @@
         "phpunit/phpunit": "^9.6.33"
     },
     "suggest": {
-        "ext-intl": "Required by Readable::getNumberToString() and the @ReadableNumberToString directive."
+        "ext-intl": "Required by Readable::getNumberInWords(), readable_number_in_words() and @readableNumberInWords for locales other than English."
     },
     "autoload": {
         "psr-4": {
