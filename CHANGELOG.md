@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 11.0.0 - Unreleased
+
+### Compatibility
+
+- Laravel 11 on PHP 8.2, 8.3 or 8.4. PHP 8.1 is no longer supported on this line.
+- Requires `pharaonic/php-readable` `~8.2.2` on PHP 8.2, `~8.3.2` on PHP 8.3 or `~8.4.2` on PHP 8.4.
+- The same API and outputs as 10.0.0, including the deprecated 1.x names.
+
 ## 10.0.0 - Unreleased
 
 ### Compatibility
