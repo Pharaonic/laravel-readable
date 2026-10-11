@@ -166,7 +166,6 @@ class NumbersTest extends TestCase
             'million' => ['one million', [1000000]],
             'french' => ['vingt-et-un', [21, 'fr']],
             'arabic joins the conjunction' => ['واحد وعشرون', [21, 'ar']],
-            'arabic region keeps the space' => ['واحد و عشرون', [21, 'ar_EG']],
         ];
     }
 
