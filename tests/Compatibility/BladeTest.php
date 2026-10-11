@@ -6,14 +6,14 @@ use Illuminate\Support\Facades\Blade;
 use Pharaonic\Laravel\Readable\Tests\TestCase;
 
 /**
- * Legacy (1.x) Blade directives. They echo the raw (unescaped) result.
+ * Deprecated 1.x Blade directives. They compile to the canonical methods and echo the raw (unescaped) result.
  */
 class BladeTest extends TestCase
 {
     /**
      * @dataProvider directives
      */
-    public function test_directive_compiles_to_a_static_call(string $directive, string $method): void
+    public function test_directive_compiles_to_the_canonical_static_call(string $directive, string $method): void
     {
         $this->assertSame(
             "<?php echo Pharaonic\\Laravel\\Readable\\Readable::{$method}(\$value, 1); ?>",
@@ -25,17 +25,17 @@ class BladeTest extends TestCase
     {
         return [
             ['ReadableNumber', 'getNumber'],
-            ['ReadableHumanNumber', 'getHumanNumber'],
-            ['ReadableNumberToString', 'getNumberToString'],
+            ['ReadableHumanNumber', 'getCompactNumber'],
+            ['ReadableNumberToString', 'getNumberInWords'],
             ['ReadableDecimal', 'getDecimal'],
-            ['ReadableDecInt', 'getDecInt'],
+            ['ReadableDecInt', 'getDecimalOrInteger'],
             ['ReadableDate', 'getDate'],
             ['ReadableTime', 'getTime'],
             ['ReadableDateTime', 'getDateTime'],
-            ['ReadableDiffDateTime', 'getDiffDateTime'],
-            ['ReadableTimeLength', 'getTimeLength'],
+            ['ReadableDiffDateTime', 'getRelativeDateTime'],
+            ['ReadableTimeLength', 'getDuration'],
             ['ReadableDateTimeLength', 'getDateTimeLength'],
-            ['ReadableSize', 'getSize'],
+            ['ReadableSize', 'getFileSize'],
         ];
     }
 

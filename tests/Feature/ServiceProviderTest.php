@@ -13,6 +13,9 @@ class ServiceProviderTest extends TestCase
         $directives = array_keys(Blade::getCustomDirectives());
 
         foreach ([
+            'readableNumber', 'readableCompactNumber', 'readableNumberInWords', 'readableDecimal', 'readableDecimalOrInteger',
+            'readableDate', 'readableTime', 'readableDateTime', 'readableRelativeDateTime', 'readableDuration',
+            'readableDateTimeLength', 'readableFileSize',
             'ReadableNumber', 'ReadableHumanNumber', 'ReadableNumberToString', 'ReadableDecimal', 'ReadableDecInt',
             'ReadableDate', 'ReadableTime', 'ReadableDateTime', 'ReadableDiffDateTime', 'ReadableTimeLength',
             'ReadableDateTimeLength', 'ReadableSize',

@@ -12,6 +12,9 @@ All notable changes to this project will be documented in this file.
 - Compatibility, feature and unit test suites, PHPStan and Laravel Pint.
 - GitHub community files, Dependabot and a PHP 8.0 lowest/highest CI matrix.
 - Package documentation in `docs/` for pharaonic.dev.
+- Canonical method names: `getCompactNumber()`, `getNumberInWords()`, `getDecimalOrInteger()`, `getRelativeDateTime()`, `getDuration()` and `getFileSize()`.
+- `snake_case` global helpers for every method, such as `readable_number()` and `readable_file_size()`.
+- camelCase Blade directives for every method, such as `@readableNumber` and `@readableFileSize`.
 
 ### Changed
 
@@ -21,6 +24,21 @@ All notable changes to this project will be documented in this file.
 - Dates are parsed with `Illuminate\Support\Carbon`, a subclass of `Carbon\Carbon`.
 - Global helpers are declared only when the function does not already exist.
 - The package requires `illuminate/support` and `illuminate/view` instead of `laravel/framework`.
+
+### Deprecated
+
+Each deprecated name still works and returns the same value. They are removed in the first line that supports PHP 8.6.
+
+| Deprecated | Use |
+|---|---|
+| `getHumanNumber()` | `getCompactNumber()` |
+| `getNumberToString()` | `getNumberInWords()` |
+| `getDecInt()` | `getDecimalOrInteger()` |
+| `getDiffDateTime()` | `getRelativeDateTime()` |
+| `getTimeLength()` | `getDuration()` |
+| `getSize()` | `getFileSize()` |
+| `ReadableNumber()` and the other PascalCase helpers | `readable_number()` and the other `snake_case` helpers |
+| `@ReadableNumber` and the other PascalCase directives | `@readableNumber` and the other camelCase directives |
 
 ### Fixed
 

@@ -13,9 +13,9 @@ use TypeError;
 class Readable
 {
     /**
-     * Human number units, from the smallest.
+     * Compact number units, from the smallest.
      */
-    private const HUMAN_NUMBER_UNITS = ['', 'K', 'M', 'B', 'T'];
+    private const COMPACT_NUMBER_UNITS = ['', 'K', 'M', 'B', 'T'];
 
     /**
      * Seconds per time length unit. A year is 365 days and a month is 30 days.
@@ -40,11 +40,11 @@ class Readable
     }
 
     /**
-     * Get Readable Social Number
+     * Get Readable Compact Number: 77700 → "77K"
      *
      * Without $showDecimal the value is truncated to whole units (77700 → "77K").
      */
-    public static function getHumanNumber(int $input, bool $showDecimal = false, int $decimals = 0): string
+    public static function getCompactNumber(int $input, bool $showDecimal = false, int $decimals = 0): string
     {
         if ($input === 0) {
             return '0';
@@ -52,7 +52,7 @@ class Readable
 
         $decimals = $showDecimal && $decimals == 0 ? 1 : $decimals;
         $absolute = abs($input);
-        $last = count(self::HUMAN_NUMBER_UNITS) - 1;
+        $last = count(self::COMPACT_NUMBER_UNITS) - 1;
         $unit = 0;
 
         while ($unit < $last && $absolute >= 1000 ** ($unit + 1)) {
@@ -68,21 +68,21 @@ class Readable
             $value = $absolute / 1000 ** ++$unit;
         }
 
-        return ($input < 0 ? '-' : '').number_format($value, $decimals).self::HUMAN_NUMBER_UNITS[$unit];
+        return ($input < 0 ? '-' : '').number_format($value, $decimals).self::COMPACT_NUMBER_UNITS[$unit];
     }
 
     /**
-     * Get Readable String of Number
+     * Get Readable Number in Words: 21 → "twenty-one"
      *
-     * English is spelled out natively. Any other language requires the intl extension.
+     * English is spelled out natively. Any other locale requires the intl extension.
      *
      * @param  int|float  $input
      */
-    public static function getNumberToString($input, string $lang = 'en'): string
+    public static function getNumberInWords($input, string $locale = 'en'): string
     {
         self::assertNumber($input);
 
-        return Number::spell($input, $lang === 'en' ? null : $lang);
+        return Number::spell($input, $locale === 'en' ? null : $locale);
     }
 
     /**
@@ -99,22 +99,21 @@ class Readable
     }
 
     /**
-     * Get Readable ( Decimal Number => Decimal || Integer )
+     * Get Readable Decimal or Integer Number
      *
      * Integers, and floats that round to a whole number, have no decimals (70.00 → "70").
      *
      * @param  int|float  $input
-     * @return string
      */
-    public static function getDecInt($input, int $decimals_length = 2, string $point = '.', string $delimiter = ','): ?string
+    public static function getDecimalOrInteger($input, int $decimals = 2, string $point = '.', string $delimiter = ','): string
     {
         self::assertNumber($input);
 
-        if (is_int($input) || fmod(round($input, $decimals_length), 1) == 0) {
-            $decimals_length = 0;
+        if (is_int($input) || fmod(round($input, $decimals), 1) == 0) {
+            $decimals = 0;
         }
 
-        return number_format($input, $decimals_length, $point, $delimiter);
+        return number_format($input, $decimals, $point, $delimiter);
     }
 
     // DATE & TIME
@@ -193,35 +192,32 @@ class Readable
     }
 
     /**
-     * Get Readable DateTime
+     * Get Readable Relative DateTime: "3 days ago", or "29 years before" against $other
      *
-     * @param  \DateTimeInterface|string|null  $old
-     * @param  \DateTimeInterface|string|null  $new
-     * @return string
+     * @param  \DateTimeInterface|string|null  $date
+     * @param  \DateTimeInterface|string|null  $other  Now when null.
      */
-    public static function getDiffDateTime($old, $new = null, ?string $timezone = null): ?string
+    public static function getRelativeDateTime($date, $other = null, ?string $timezone = null): string
     {
-        self::prepareDateTime($old, $timezone);
-        self::prepareDateTime($new, $timezone);
+        self::prepareDateTime($date, $timezone);
+        self::prepareDateTime($other, $timezone);
 
-        return $old->diffForHumans($new);
+        return $date->diffForHumans($other);
     }
 
     /**
-     * Get Readable DateTime Length from Seconds
+     * Get Readable Duration from Seconds: 3661 → "1 hour 1 minute 1 second"
      *
      * The sign is ignored and zero is "0 seconds".
-     *
-     * @return string
      */
-    public static function getTimeLength(int $input, string $comma = ' ', bool $short = false): ?string
+    public static function getDuration(int $seconds, string $separator = ' ', bool $short = false): string
     {
         $values = [];
 
-        foreach (self::TIME_LENGTH_UNITS as $unit => $seconds) {
+        foreach (self::TIME_LENGTH_UNITS as $unit => $length) {
             // intdiv() and % keep the sign, so PHP_INT_MIN never needs abs().
-            $values[$unit] = abs(intdiv($input, $seconds));
-            $input %= $seconds;
+            $values[$unit] = abs(intdiv($seconds, $length));
+            $seconds %= $length;
         }
 
         $interval = new CarbonInterval(
@@ -229,7 +225,7 @@ class Readable
             $values['hours'], $values['minutes'], $values['seconds']
         );
 
-        return $interval->forHumans(['join' => $comma, 'short' => $short, 'options' => 0]);
+        return $interval->forHumans(['join' => $separator, 'short' => $short, 'options' => 0]);
     }
 
     /**
@@ -256,13 +252,70 @@ class Readable
      *
      * @param  bool  $decimal  1 KB = 1000 B when true, 1 KiB = 1024 B when false.
      */
-    public static function getSize(int $bytes, bool $decimal = true): ?string
+    public static function getFileSize(int $bytes, bool $decimal = true): ?string
     {
         if ($bytes < 0) {
             return null;
         }
 
         return Bytes::format($bytes, 2, ! $decimal);
+    }
+
+    // DEPRECATED ALIASES
+
+    /**
+     * @deprecated Use {@see Readable::getCompactNumber()}. Removed in the first line that supports PHP 8.6.
+     */
+    public static function getHumanNumber(int $input, bool $showDecimal = false, int $decimals = 0): string
+    {
+        return self::getCompactNumber($input, $showDecimal, $decimals);
+    }
+
+    /**
+     * @deprecated Use {@see Readable::getNumberInWords()}. Removed in the first line that supports PHP 8.6.
+     *
+     * @param  int|float  $input
+     */
+    public static function getNumberToString($input, string $lang = 'en'): string
+    {
+        return self::getNumberInWords($input, $lang);
+    }
+
+    /**
+     * @deprecated Use {@see Readable::getDecimalOrInteger()}. Removed in the first line that supports PHP 8.6.
+     *
+     * @param  int|float  $input
+     */
+    public static function getDecInt($input, int $decimals_length = 2, string $point = '.', string $delimiter = ','): ?string
+    {
+        return self::getDecimalOrInteger($input, $decimals_length, $point, $delimiter);
+    }
+
+    /**
+     * @deprecated Use {@see Readable::getRelativeDateTime()}. Removed in the first line that supports PHP 8.6.
+     *
+     * @param  \DateTimeInterface|string|null  $old
+     * @param  \DateTimeInterface|string|null  $new
+     */
+    public static function getDiffDateTime($old, $new = null, ?string $timezone = null): ?string
+    {
+        return self::getRelativeDateTime($old, $new, $timezone);
+    }
+
+    /**
+     * @deprecated Use {@see Readable::getDuration()}. Removed in the first line that supports PHP 8.6.
+     */
+    public static function getTimeLength(int $input, string $comma = ' ', bool $short = false): ?string
+    {
+        return self::getDuration($input, $comma, $short);
+    }
+
+    /**
+     * @deprecated Use {@see Readable::getFileSize()}. Removed in the first line that supports PHP 8.6.
+     */
+    public static function getSize(int $bytes, bool $decimal = true): ?string
+    {
+        return self::getFileSize($bytes, $decimal);
     }
 
     /**
