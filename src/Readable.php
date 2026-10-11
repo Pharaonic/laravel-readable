@@ -95,7 +95,8 @@ class Readable
     {
         self::assertNumber($input);
 
-        return number_format($input, $decimals, $point, $delimiter);
+        // PHP 8.3+ rounds to tens on negative decimals; keep the 1.x output, which treats them as 0.
+        return number_format($input, max(0, $decimals), $point, $delimiter);
     }
 
     /**
