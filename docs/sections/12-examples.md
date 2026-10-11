@@ -9,7 +9,7 @@ Show each upload's size, age and owner-friendly date.
   ```php title="app/Http/Controllers/FileController.php"
   namespace App\Http\Controllers;
 
-  use App\File;
+  use App\Models\File;
 
   class FileController extends Controller
   {
@@ -55,7 +55,7 @@ Truncated counters never overstate: 1999 followers is `1K`, not `2K`.
 
 Print the total in figures and in words, in the customer's language.
 
-```php title="app/Invoice.php"
+```php title="app/Models/Invoice.php"
 public function getTotalInWordsAttribute(): string
 {
     return readable_number_in_words((float) $this->total, $this->customer->locale);

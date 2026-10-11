@@ -4,9 +4,9 @@ Install the package with Composer. Laravel discovers the service provider and th
 
 ### Requirements
 
-- PHP 8.0
-- Laravel 7.30 or newer within 7.x
-- `pharaonic/php-readable` 8.0.3+ within 8.0.x (installed automatically)
+- PHP 8.0 or 8.1
+- Laravel 8.75 or newer within 8.x
+- `pharaonic/php-readable` 8.0.3+ on PHP 8.0 or 8.1.2+ on PHP 8.1 (installed automatically)
 - `ext-intl`, only to spell numbers in a language other than English
 
 ### Composer Installation
