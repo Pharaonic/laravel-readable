@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## 10.0.0 - Unreleased
+
+### Compatibility
+
+- Laravel 10 on PHP 8.1, 8.2 or 8.3. PHP 8.0 is no longer supported on this line.
+- Requires `pharaonic/php-readable` `~8.1.2` on PHP 8.1, `~8.2.2` on PHP 8.2 or `~8.3.2` on PHP 8.3.
+- `getDecimal()` treats negative decimals as 0 on PHP 8.3 as well (`1234.5, -1` → `1,235`), as on earlier PHP versions. PHP 8.3's `number_format()` would round to tens.
+- The same API and outputs as 9.0.0, including the deprecated 1.x names.
+
 ## 9.0.0 - Unreleased
 
 ### Compatibility
