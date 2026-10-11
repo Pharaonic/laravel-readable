@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## 9.0.0 - Unreleased
+
+### Compatibility
+
+- Laravel 9.33+ on PHP 8.0, 8.1 or 8.2. Laravel 9.33 is the first 9.x release that requires a Carbon release (2.62.1+) working on PHP 8.2; with older ones, every date method throws a `TypeError` on PHP 8.2.
+- Requires `pharaonic/php-readable` `~8.0.3` on PHP 8.0, `~8.1.2` on PHP 8.1 or `~8.2.2` on PHP 8.2.
+- The same API and outputs as 8.0.0, including the deprecated 1.x names.
+
 ## 8.0.0 - Unreleased
 
 ### Compatibility
