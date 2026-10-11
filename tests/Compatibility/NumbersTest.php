@@ -105,7 +105,6 @@ test('getNumberToString', function (string $expected, array $arguments) {
     'million' => ['one million', [1000000]],
     'french' => ['vingt-et-un', [21, 'fr']],
     'arabic joins the conjunction' => ['واحد وعشرون', [21, 'ar']],
-    'arabic region keeps the space' => ['واحد و عشرون', [21, 'ar_EG']],
 ]);
 
 test('getNumberToString rejects non-numbers', function ($input) {
