@@ -27,13 +27,14 @@ Use the branch matching the Laravel version you want to support.
 7.x → Laravel 7
 8.x → Laravel 8
 9.x → Laravel 9
+10.x → Laravel 10
 ```
 
 Example:
 
 ```bash
-git checkout 9.x
-git pull upstream 9.x
+git checkout 10.x
+git pull upstream 10.x
 ```
 
 Always start your work from the appropriate Laravel version branch.
@@ -105,7 +106,7 @@ The package must also be tested against the Laravel version targeted by the bran
 For example:
 
 ```text
-9.x → Laravel 9
+10.x → Laravel 10
 ```
 
 ## Commit your changes
@@ -117,7 +118,7 @@ Examples:
 ```text
 Add locale support to getCompactNumber
 Fix size rounding at unit boundaries
-Update Laravel 9 compatibility
+Update Laravel 10 compatibility
 Update usage documentation
 ```
 
@@ -145,7 +146,7 @@ Example:
 ```text
 fix/size-rounding
         ↓
-       9.x
+       10.x
 ```
 
 Do not submit the pull request against another Laravel version branch.
