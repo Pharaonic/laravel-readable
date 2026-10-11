@@ -8,7 +8,7 @@ Readable numbers, dates, durations, and file sizes for Laravel, exposed as stati
 
 ## Supported Laravel lines
 
-One branch per Laravel major, from `6.x` to the newest major. Each line's PHP range, `illuminate/*` constraint, and tools follow the Pharaonic Laravel line table. `6.x` runs PHPUnit; later lines run Pest.
+One branch per Laravel major, from `6.x` to the newest major. Each line's PHP range, `illuminate/*` constraint, and tools follow the Pharaonic Laravel line table. `6.x` runs PHPUnit, because Pest cannot install on Laravel 6; later lines run Pest.
 
 ## Core library
 
